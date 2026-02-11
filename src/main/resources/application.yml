@@ -3,31 +3,33 @@ spring:
     name: picook
 
   config:
-    import: "optional:file:./application-secrets.yml"
+    import: "optional:classpath:application-secrets.yml"
 
   profiles:
     active: local
 
   jpa:
-    hibernate:
-      ddl-auto: update
     properties:
       hibernate:
-        format_sql: true
-        show_sql: true
         dialect: org.hibernate.dialect.PostgreSQLDialect
-        jdbc:
-          batch_size: 100
 
   batch:
-    jdbc:
-      initialize-schema: always
     job:
       enabled: false
 
-# ??? ?? ?? ??: SQL ??? ????? ?? ? AI ?? ??
-logging:
-  level:
-    org.hibernate.SQL: debug
-    org.hibernate.orm.jdbc.bind: trace # SQL? ????? ?? ? ??
-    io.picook: debug # ???? ??? ??
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: never
+  metrics:
+    tags:
+      application: ${spring.application.name}
+    distribution:
+      percentiles-histogram:
+        http:
+          server:
+            requests: true
