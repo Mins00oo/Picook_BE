@@ -22,8 +22,8 @@ public class RestClientConfig {
     }
 
     @Bean
-    public RestClient restClient(RestClient.Builder builder, ClientHttpRequestFactory clientHttpRequestFactory) {
-        return builder
+    public RestClient restClient(ClientHttpRequestFactory clientHttpRequestFactory) {
+        return RestClient.builder()
                 .requestFactory(clientHttpRequestFactory)
                 .build();
     }

@@ -1,0 +1,17 @@
+spring:
+  autoconfigure:
+    exclude: []
+
+  ai:
+    model:
+      chat: ${SPRING_AI_MODEL_CHAT:vertexai}
+    vertex:
+      ai:
+        embedding:
+          project-id: ${VERTEX_AI_EMBEDDING_PROJECT_ID:${VERTEX_AI_PROJECT_ID}}
+          location: ${VERTEX_AI_EMBEDDING_LOCATION:${VERTEX_AI_LOCATION}}
+          credentials-uri: ${VERTEX_AI_EMBEDDING_CREDENTIALS_URI:${VERTEX_AI_CREDENTIALS_URI:}}
+        gemini:
+          project-id: ${VERTEX_AI_GEMINI_PROJECT_ID:${VERTEX_AI_PROJECT_ID}}
+          location: ${VERTEX_AI_GEMINI_LOCATION:${VERTEX_AI_LOCATION}}
+          credentials-uri: ${VERTEX_AI_GEMINI_CREDENTIALS_URI:${VERTEX_AI_CREDENTIALS_URI:}}

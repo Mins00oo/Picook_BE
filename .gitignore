@@ -38,3 +38,8 @@ out/
 
 ### Custom Secret Value
 application-secrets.yml
+
+### Logs
+logs/
+*.log
+*.log.gz
