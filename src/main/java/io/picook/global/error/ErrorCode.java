@@ -20,7 +20,15 @@ public enum ErrorCode {
 
     // 3. AI & Batch (A)
     AI_TRANSFORM_FAILED(HttpStatus.SERVICE_UNAVAILABLE, "A001", "AI 데이터 정제에 실패했습니다."),
-    BATCH_EXECUTION_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "A002", "데이터 적재 작업 중 오류가 발생했습니다.");
+    BATCH_EXECUTION_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "A002", "데이터 적재 작업 중 오류가 발생했습니다."),
+
+    // 4. Auth (U)
+    INVALID_SOCIAL_ACCESS_TOKEN(HttpStatus.UNAUTHORIZED, "U001", "소셜 액세스 토큰이 유효하지 않습니다."),
+    SOCIAL_PROVIDER_API_ERROR(HttpStatus.BAD_GATEWAY, "U002", "소셜 제공자 API 호출에 실패했습니다."),
+    JWT_CONFIGURATION_INVALID(HttpStatus.INTERNAL_SERVER_ERROR, "U003", "JWT 설정이 올바르지 않습니다."),
+    INVALID_REFRESH_TOKEN(HttpStatus.UNAUTHORIZED, "U004", "리프레시 토큰이 유효하지 않습니다."),
+    INVALID_ACCESS_TOKEN(HttpStatus.UNAUTHORIZED, "U005", "액세스 토큰이 유효하지 않습니다."),
+    USER_NOT_FOUND(HttpStatus.NOT_FOUND, "U006", "존재하지 않는 사용자입니다.");
 
     private final HttpStatus status;
     private final String code;
