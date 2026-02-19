@@ -20,11 +20,6 @@ public class UserService {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new BusinessException(ErrorCode.USER_NOT_FOUND));
 
-        return new MyProfileResponse(
-                user.getId(),
-                user.getNickname(),
-                user.getEmail(),
-                user.getProfileImage()
-        );
+        return MyProfileResponse.from(user);
     }
 }
