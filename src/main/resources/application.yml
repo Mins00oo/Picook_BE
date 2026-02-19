@@ -33,3 +33,16 @@ management:
         http:
           server:
             requests: true
+
+auth:
+  jwt:
+    secret: ${AUTH_JWT_SECRET}
+    access-token-expiration-seconds: ${AUTH_JWT_ACCESS_EXPIRATION_SECONDS}
+    refresh-token-expiration-seconds: ${AUTH_JWT_REFRESH_EXPIRATION_SECONDS}
+  kakao:
+    user-info-uri: ${AUTH_KAKAO_USER_INFO_URI}
+
+infra:
+  http-client:
+    connect-timeout-ms: ${INFRA_HTTP_CONNECT_TIMEOUT_MS:3000}
+    read-timeout-ms: ${INFRA_HTTP_READ_TIMEOUT_MS:5000}
